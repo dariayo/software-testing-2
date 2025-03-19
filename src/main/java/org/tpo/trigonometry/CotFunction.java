@@ -1,23 +1,28 @@
 package org.tpo.trigonometry;
 
-import org.tpo.functions.Calculable;
+import org.tpo.interfaces.TrigFunctions;
 
-public class CotFunction implements Calculable {
-    private final SinFunction sinFunction;
-    private final CosFunction cosFunction;
+public class CotFunction implements TrigFunctions {
+    private final CosFunction cos;
+    private final SinFunction sin;
 
-    public CotFunction(double eps, SinFunction sinFunction) {
-        if (Double.isNaN(eps) || eps <= 0) {
-            throw new IllegalArgumentException("eps must be > 0");
-        }
-        this.sinFunction = sinFunction;
-        cosFunction = new CosFunction(eps, sinFunction);
+    public CotFunction(CosFunction cos, SinFunction sin) {
+        this.cos = cos;
+        this.sin = sin;
     }
 
-    public double calc(double x) {
-        if (x % Math.PI == 0) {
-            return Double.NaN;
+    public CotFunction() {
+        sin = new SinFunction();
+        cos = new CosFunction(sin);
+    }
+
+    public double calc(double x, double eps) {
+        double cosVal = cos.calc(x, eps);
+        double sinVal = sin.calc(x, eps);
+
+        if (Math.abs(sinVal) <= eps) {
+            return cosVal > 0 ? Double.POSITIVE_INFINITY : Double.NEGATIVE_INFINITY;
         }
-        return cosFunction.calc(x) / sinFunction.calc(x);
+        return cosVal / sinVal;
     }
 }

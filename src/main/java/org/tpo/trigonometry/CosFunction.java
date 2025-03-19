@@ -1,19 +1,23 @@
 package org.tpo.trigonometry;
 
-import org.tpo.functions.Calculable;
+import org.tpo.interfaces.TrigFunctions;
 
-public class CosFunction implements Calculable {
-    private final SinFunction sinFunction;
+import static java.lang.Math.PI;
 
-    public CosFunction(double eps, SinFunction sinFunction) {
-        if (Double.isNaN(eps) || eps <= 0) {
-            throw new IllegalArgumentException("eps must be > 0");
-        }
-        this.sinFunction = sinFunction;
+public class CosFunction implements TrigFunctions {
+    private final SinFunction sin;
+
+    public CosFunction(SinFunction sin) {
+        this.sin = sin;
     }
 
-    @Override
-    public double calc(double x) {
-        return sinFunction.calc(Math.PI/2 + x);
+    public CosFunction() {
+        sin = new SinFunction();
+    }
+
+    public double calc(double x, double eps) {
+        x = x % (2 * PI);
+        return sin.calc(x + PI / 2, eps);
+
     }
 }

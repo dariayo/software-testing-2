@@ -1,30 +1,17 @@
 package org.tpo.logarithms;
 
-import org.tpo.functions.Calculable;
+import org.tpo.interfaces.LgFunctions;
 
-public class LogFunction implements Calculable {
-    private final double arg;
-    private final LnFunction lnFunction;
+public class LogFunction implements LgFunctions {
+    private final LnFunction ln;
+    private final Integer base;
 
-    public LogFunction(double eps, double arg, LnFunction lnFunction) {
-        if (Double.isNaN(eps) || eps <= 0) {
-            throw new IllegalArgumentException("eps must be > 0");
-        }
-        if (Double.isNaN(arg) || arg <= 0 || arg == 1 || Double.isInfinite(arg)) {
-            throw new IllegalArgumentException("base of logarithm must be number");
-        }
-        this.arg = arg;
-        this.lnFunction = lnFunction;
+    public LogFunction(LnFunction ln, Integer base) {
+        this.ln = ln;
+        this.base = base;
     }
 
-    @Override
-    public double calc(double x) {
-        if (x <= 0 || Double.isNaN(x)) {
-            throw new IllegalArgumentException("x must be a number > 0");
-        }
-        if (x == Double.POSITIVE_INFINITY) {
-            return Double.POSITIVE_INFINITY;
-        }
-        return lnFunction.calc(x) / lnFunction.calc(this.arg);
+    public double calc(double x, double eps) {
+        return ln.calc(x, eps) / ln.calc(base, eps);
     }
 }

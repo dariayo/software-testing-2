@@ -1,47 +1,41 @@
 package org.tpo.trigonometry;
 
-import org.tpo.functions.Calculable;
+import org.tpo.interfaces.TrigFunctions;
 
-public class SinFunction implements Calculable {
-    private final double eps;
+import static java.lang.Math.PI;
 
-    public SinFunction(double eps) {
-        if (Double.isNaN(eps) || eps <= 0) {
-            throw new IllegalArgumentException("eps must be > 0");
-        }
-        this.eps = eps;
-    }
+public class SinFunction implements TrigFunctions {
+    public double calc(double x, double eps) {
+        x = x % (2 * PI);
 
-    @Override
-    public double calc(double x) {
-        double val = Double.MAX_VALUE;
-        double nextVal = 0.0;
-        int n = 1;
-        if (Double.isNaN(x) || Double.isInfinite(x)) {
-            throw new IllegalArgumentException("x must be a number");
+        if (Double.compare(x, 0D) == 0) {
+            return 0.0;
         }
-        if (x > Math.PI || x < -Math.PI) {
-            double newX = x % (2 * Math.PI);
-            if (newX < -Math.PI) {
-                return newX + 2 * Math.PI;
-            }
-            if (newX > Math.PI) {
-                return newX - 2 * Math.PI;
-            }
-            x = newX;
+        if (Double.compare(x, PI / 2) == 0) {
+            return 1.0;
         }
-        while (Math.abs(val - nextVal) >= eps) {
-            val = nextVal;
-            nextVal += Math.pow(-1, n - 1) * Math.pow(x, 2 * n - 1) / factorial(2 * n - 1);
-            n++;
+        if (Double.compare(x, -PI / 2) == 0) {
+            return -1.0;
         }
-        return nextVal;
-    }
 
-    private static int factorial(int n) {
-        if (n == 0) {
-            return 1;
+        int n = 0;
+        double result = 0;
+        double pow = x;
+        double fact = 1;
+        int sign = 1;
+        double term = x;
+
+        while (Math.abs(term) > eps) {
+            result += term;
+
+            sign = -sign;
+            fact *= (2 * n + 2) * (2 * n + 3);
+            pow *= x * x;
+            n += 1;
+            term = sign * pow / fact;
         }
-        return n * factorial(n - 1);
+
+        return result;
+
     }
 }
