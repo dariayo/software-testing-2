@@ -3,7 +3,7 @@ package org.tpo.math;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
-import org.tpo.trigonometry.*;
+import org.tpo.math.trigonometry.*;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

@@ -1,6 +1,6 @@
-package org.tpo.trigonometry;
+package org.tpo.math.trigonometry;
 
-import org.tpo.interfaces.TrigFunctions;
+import org.tpo.math.interfaces.TrigFunctions;
 
 import static java.lang.Math.PI;
 

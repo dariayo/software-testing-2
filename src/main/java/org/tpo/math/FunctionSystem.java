@@ -1,8 +1,8 @@
-package org.tpo;
+package org.tpo.math;
 
 import lombok.AllArgsConstructor;
-import org.tpo.logarithms.LogPart;
-import org.tpo.trigonometry.*;
+import org.tpo.math.logarithms.LogPart;
+import org.tpo.math.trigonometry.TrigPart;
 
 @AllArgsConstructor
 public class FunctionSystem {

@@ -1,7 +1,7 @@
-package org.tpo;
+package org.tpo.math;
 
-import org.tpo.logarithms.LogPart;
-import org.tpo.trigonometry.*;
+import org.tpo.math.logarithms.LogPart;
+import org.tpo.math.trigonometry.TrigPart;
 
 public class Main {
     public static void main(String[] args) {

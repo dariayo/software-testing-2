@@ -3,9 +3,9 @@ package org.tpo.math;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
-import org.tpo.trigonometry.CosFunction;
-import org.tpo.trigonometry.SinFunction;
-import org.tpo.trigonometry.TanFunction;
+import org.tpo.math.trigonometry.CosFunction;
+import org.tpo.math.trigonometry.SinFunction;
+import org.tpo.math.trigonometry.TanFunction;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

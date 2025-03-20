@@ -1,7 +1,7 @@
-package org.tpo.trigonometry;
+package org.tpo.math.trigonometry;
 
 import lombok.AllArgsConstructor;
-import org.tpo.interfaces.TrigFunctions;
+import org.tpo.math.interfaces.TrigFunctions;
 
 @AllArgsConstructor
 public class TrigPart implements TrigFunctions {

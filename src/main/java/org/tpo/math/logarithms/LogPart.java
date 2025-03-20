@@ -1,6 +1,6 @@
-package org.tpo.logarithms;
+package org.tpo.math.logarithms;
 
-import org.tpo.interfaces.LgFunctions;
+import org.tpo.math.interfaces.LgFunctions;
 
 public class LogPart implements LgFunctions {
     private final LnFunction ln;

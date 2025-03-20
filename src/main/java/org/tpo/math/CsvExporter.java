@@ -1,4 +1,4 @@
-package org.tpo;
+package org.tpo.math;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;

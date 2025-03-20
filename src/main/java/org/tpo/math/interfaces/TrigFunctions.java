@@ -1,4 +1,4 @@
-package org.tpo.interfaces;
+package org.tpo.math.interfaces;
 
 public interface TrigFunctions {
     double calc(double x, double eps);

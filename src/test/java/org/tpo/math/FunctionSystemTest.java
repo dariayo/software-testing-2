@@ -3,11 +3,10 @@ package org.tpo.math;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
-import org.tpo.FunctionSystem;
-import org.tpo.logarithms.LnFunction;
-import org.tpo.logarithms.LogFunction;
-import org.tpo.logarithms.LogPart;
-import org.tpo.trigonometry.*;
+import org.tpo.math.logarithms.LnFunction;
+import org.tpo.math.logarithms.LogFunction;
+import org.tpo.math.logarithms.LogPart;
+import org.tpo.math.trigonometry.*;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

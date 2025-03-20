@@ -1,6 +1,6 @@
-package org.tpo.trigonometry;
+package org.tpo.math.trigonometry;
 
-import org.tpo.interfaces.TrigFunctions;
+import org.tpo.math.interfaces.TrigFunctions;
 
 public class TanFunction implements TrigFunctions {
     private final CosFunction cos;
