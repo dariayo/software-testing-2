@@ -14,10 +14,11 @@
     <modules>
         <module>order-service</module>
         <module>product-service</module>
+        <module>integration-test</module>
     </modules>
 
     <properties>
-        <java.version>19</java.version>
+        <java.version>17</java.version>
         <spring-boot.version>3.2.3</spring-boot.version>
         <spring-cloud.version>2023.0.0</spring-cloud.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>

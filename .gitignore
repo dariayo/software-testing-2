@@ -3,3 +3,4 @@
 microservices/target
 microservices/order-service/target
 microservices/product-service/target
+microservices/integration-test/target
