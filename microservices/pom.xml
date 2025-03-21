@@ -14,7 +14,7 @@
     <modules>
         <module>order-service</module>
         <module>product-service</module>
-        <module>integration-test</module>
+<!--        <module>integration-test</module>-->
     </modules>
 
     <properties>

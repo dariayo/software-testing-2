@@ -8,14 +8,50 @@ spring:
     username: sa
     password:
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
       ddl-auto: update
-  h2:
-    console:
-      enabled: true
-      path: /h2-console
+    show-sql: true
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+        transaction:
+          jta:
+            platform: none
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always
+
+h2:
+  console:
+    enabled: true
+    path: /h2-console
 
 product:
   service:
-    url: http://localhost:8081
+    url: http://product-service:8081
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 2000
+        readTimeout: 2000
+        loggerLevel: full
+  httpclient:
+    enabled: true
+    max-connections: 200
+    max-connections-per-route: 50
+
+logging:
+  level:
+    org.tpo: DEBUG
+    org.springframework.web: DEBUG
+    org.springframework.web.client: DEBUG
+    org.springframework.cloud.openfeign: DEBUG

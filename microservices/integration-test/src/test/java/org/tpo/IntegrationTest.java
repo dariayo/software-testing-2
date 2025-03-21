@@ -4,7 +4,6 @@ import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.containers.Network;
 import org.testcontainers.containers.wait.strategy.Wait;
@@ -19,7 +18,6 @@ import java.time.Duration;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
 
-@SpringBootTest
 @Testcontainers
 public class IntegrationTest {
 
@@ -145,7 +143,7 @@ public class IntegrationTest {
                 .extract()
                 .path("id");
 
-        // Попытка создать заказ на большее количество через order-service
+        // создать заказ на большее количество через order-service
         OrderRequest orderRequest = new OrderRequest();
         orderRequest.setProductId(Long.valueOf(productId));
         orderRequest.setAmount(2);

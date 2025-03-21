@@ -18,8 +18,6 @@ public class TrigPartTest {
     public static CosFunction cos = mock(CosFunction.class);
     public static CotFunction cot = mock(CotFunction.class);
     public static TanFunction tan = mock(TanFunction.class);
-
-    public static SinFunction sinReal = new SinFunction();
     public static CosFunction cosReal = new CosFunction(new SinFunction());
     public static CotFunction cotReal = new CotFunction(new CosFunction(new SinFunction()), new SinFunction());
     public static TanFunction tanReal = new TanFunction(new CosFunction(new SinFunction()), new SinFunction());
